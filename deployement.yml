@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-hpa
+spec:
+  #start with 2 pods and give pod labels
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template: # the pod blueprint
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: yamini-container
+        image: httpd
+        ports:
+        - containerPort: 80
+        # requests = pod CPU how much to serve
+        # cpu is measured in millicores: 1000m = 1 full CPU core, so 250m = a quarter of a core
+        resources:
+          requests:
+            cpu: 250m
