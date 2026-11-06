@@ -6,38 +6,13 @@ This project demonstrates the implementation of **Horizontal Pod Autoscaling (HP
 
 The objective is to understand how Kubernetes automatically scales application pods based on CPU utilization when application traffic increases.
 
+https://github.com/user-attachments/assets/a44a83d5-57bf-44a3-8bd1-41e19e7211b7
+
 A web application is deployed inside Kubernetes, exposed through an AWS LoadBalancer, and subjected to simulated traffic using a Bash script with parallel HTTP requests.
 
 ## 🏗️ Architecture
 
-```text
-              User / Client
-                   |
-                   |
-             HTTP Requests
-                   |
-                   v
-           AWS LoadBalancer
-                   |
-                   v
-           Kubernetes Service
-                   |
-                   v
-          Kubernetes Deployment
-                   |
-          +--------+--------+
-          |        |        |
-        Pod 1    Pod 2    Pod 3 ...
-          |        |        |
-          +--------+--------+
-                   |
-                   v
-          Horizontal Pod Autoscaler
-                   |
-             CPU Monitoring
-                   |
-          Scale Out / Scale In
-```
+<img width="1500" height="1100" alt="lb_hpa_diagram" src="https://github.com/user-attachments/assets/e0e8baf3-9cef-49bc-9ae3-0b22fe8dbc08" />
 
 ## 🛠️ Technologies Used
 
